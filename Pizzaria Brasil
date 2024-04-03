@@ -1,0 +1,30 @@
+import os
+
+def salvar_dados(OP, nome, endereco, sabor_da_pizza, bebida, forma_de_pagamento):
+    with open('Meu_pedido_gostoso.txt', 'a') as arquivo:
+        arquivo.write(f'OP: {OP}\n')
+        arquivo.write(f'Nome do cliente: {nome}\n')
+        arquivo.write(f'Endereço do cliente: {endereco}\n')
+        arquivo.write(f'Sabor da pizza: {sabor_da_pizza}\n')
+        arquivo.write(f'Bebida: {bebida}\n')
+        arquivo.write(f'Forma de pagamento escolhida: {forma_de_pagamento}\n')
+        arquivo.write('-' * 50 + '\n')
+
+def menu():
+    print("Olá, seja bem vindo. Venha fazer o seu pedido!")
+    OP = input("Informe o número do pedido (OP): ")
+    nome = input("Informe seu nome completo: ")
+    endereco = input("Informe seu endereço: ")
+    sabor_da_pizza = input("Qual sabor você gostaria?: ")
+    bebida = input("Qual bebida você gostaria?: ")
+    forma_de_pagamento = input("Qual seria a forma de pagamento?: ")
+
+    salvar_dados(OP, nome, endereco, sabor_da_pizza, bebida, forma_de_pagamento)
+    print("Pedido realizado com sucesso!")
+
+if __name__ == "__main__":
+    while True:
+        menu()
+        continuar = input("Deseja realizar outro pedido? (sim/nao): ")
+        if continuar.lower() != 's':
+            break
